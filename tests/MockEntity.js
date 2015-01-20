@@ -13,28 +13,28 @@ wb.serialization.tests = wb.serialization.tests || {};
  * @constructor
  *
  * @param {string} id
- * @param {wikibase.datamodel.Fingerprint} fingerprint
+ * @param {wikibase.datamodel.EntityTerms} entityTerms
  */
 var SELF = wb.serialization.tests.MockEntity = util.inherit(
 	'wbMockEntity',
 	wb.datamodel.Entity,
-	function WbMockEntity( id, fingerprint ) {
+	function WbMockEntity( id, entityTerms ) {
 		this._id = id;
-		this._fingerprint = fingerprint;
+		this._entityTerms = entityTerms;
 	},
 {
 	/**
 	 * @inheritdoc
 	 */
 	isEmpty: function() {
-		return this._fingerprint.isEmpty();
+		return this._entityTerms.isEmpty();
 	},
 
 	/**
 	 * @inheritdoc
 	 */
 	equals: function( mock ) {
-		return this._id === mock.getId() && this._fingerprint.equals( mock.getFingerprint() );
+		return this._id === mock.getId() && this._entityTerms.equals( mock.getEntityTerms() );
 	}
 } );
 

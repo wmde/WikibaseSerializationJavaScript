@@ -26,18 +26,18 @@ var MockEntityDeserializer = util.inherit(
 			throw new Error( 'Serialization does not resolve to a MockEntity' );
 		}
 
-		var fingerprintDeserializer = new wb.serialization.FingerprintDeserializer();
+		var entityTermsDeserializer = new wb.serialization.EntityTermsDeserializer();
 
 		return new wb.serialization.tests.MockEntity(
 			serialization.id,
-			fingerprintDeserializer.deserialize( serialization )
+			entityTermsDeserializer.deserialize( serialization )
 		);
 	}
 } );
 
 var defaults = [
 	{
-		fingerprint: {
+		entityTerms: {
 			labels: { en: { language: 'en', value: 'label' } },
 			descriptions: { en: { language: 'en', value: 'description' } },
 			aliases: { en: [{ language: 'en', value: 'alias' }] }
@@ -54,7 +54,7 @@ var defaults = [
 			} ]
 		}
 	}, {
-		fingerprint: new wb.datamodel.Fingerprint(
+		entityTerms: new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'label' ) } ),
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'description' ) } ),
 			new wb.datamodel.MultiTermMap( { en: new wb.datamodel.MultiTerm( 'en', ['alias'] ) } )
@@ -73,7 +73,7 @@ var defaults = [
 
 var testSets = [
 	[
-		$.extend( true, {}, defaults[0].fingerprint, {
+		$.extend( true, {}, defaults[0].entityTerms, {
 			id: 'P1',
 			type: 'property',
 			datatype: 'string',
@@ -82,11 +82,11 @@ var testSets = [
 		new wb.datamodel.Property(
 			'P1',
 			'string',
-			defaults[1].fingerprint,
+			defaults[1].entityTerms,
 			defaults[1].statementGroupSet
 		)
 	], [
-		$.extend( true, {}, defaults[0].fingerprint, {
+		$.extend( true, {}, defaults[0].entityTerms, {
 			id: 'Q1',
 			type: 'item',
 			claims: defaults[0].statementGroupSet,
@@ -100,7 +100,7 @@ var testSets = [
 		} ),
 		new wb.datamodel.Item(
 			'Q1',
-			defaults[1].fingerprint,
+			defaults[1].entityTerms,
 			defaults[1].statementGroupSet,
 			new wb.datamodel.SiteLinkSet( [new wb.datamodel.SiteLink( 'someSite', 'page' )] )
 		)
@@ -124,7 +124,7 @@ QUnit.test( 'registerStrategy()', function( assert ) {
 	var mockEntitySerialization = $.extend( true, {
 		id: 'i am an id',
 		type: 'mock'
-	}, defaults[0].fingerprint );
+	}, defaults[0].entityTerms );
 
 	assert.throws(
 		function() {

@@ -21,6 +21,13 @@ version 2.0 of this package:
 
 ## Release notes
 
+### 3.0 (dev)
+* Adapted to changes of JavaScript Data Model 2.0
+
+#### Breaking changes
+* Renamed `FingerprintDeserializer` to `EntityTermsDeserializer`.
+* Renamed `FingerprintSerializer` to `EntityTermsSerializer`.
+
 ### 2.0.2 (2014-12-17)
 
 #### Bugfixes

@@ -27,7 +27,7 @@ MODULE.PropertySerializer = util.inherit( 'WbPropertySerializer', PARENT, {
 			throw new Error( 'Not an instance of wikibase.datamodel.Property' );
 		}
 
-		var fingerprintSerializer = new MODULE.FingerprintSerializer(),
+		var entityTermsSerializer = new MODULE.EntityTermsSerializer(),
 			statementGroupSetSerializer = new MODULE.StatementGroupSetSerializer();
 
 		return $.extend( true,
@@ -37,7 +37,7 @@ MODULE.PropertySerializer = util.inherit( 'WbPropertySerializer', PARENT, {
 				claims: statementGroupSetSerializer.serialize( property.getStatements() ),
 				datatype: property.getDataTypeId()
 			},
-			fingerprintSerializer.serialize( property.getFingerprint() )
+			entityTermsSerializer.serialize( property.getEntityTerms() )
 		);
 	}
 } );

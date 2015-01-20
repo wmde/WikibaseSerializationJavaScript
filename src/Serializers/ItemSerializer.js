@@ -27,7 +27,7 @@ MODULE.ItemSerializer = util.inherit( 'WbItemSerializer', PARENT, {
 			throw new Error( 'Not an instance of wikibase.datamodel.Item' );
 		}
 
-		var fingerprintSerializer = new MODULE.FingerprintSerializer(),
+		var entityTermsSerializer = new MODULE.EntityTermsSerializer(),
 			statementGroupSetSerializer = new MODULE.StatementGroupSetSerializer(),
 			siteLinkSetSerializer = new MODULE.SiteLinkSetSerializer();
 
@@ -38,7 +38,7 @@ MODULE.ItemSerializer = util.inherit( 'WbItemSerializer', PARENT, {
 				claims: statementGroupSetSerializer.serialize( item.getStatements() ),
 				sitelinks: siteLinkSetSerializer.serialize( item.getSiteLinks() )
 			},
-			fingerprintSerializer.serialize( item.getFingerprint() )
+			entityTermsSerializer.serialize( item.getEntityTerms() )
 		);
 	}
 } );

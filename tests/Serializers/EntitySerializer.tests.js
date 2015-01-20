@@ -27,18 +27,18 @@ var MockEntitySerializer = util.inherit(
 			throw new Error( 'Not an instance of wikibase.datamodel.MockEntity' );
 		}
 
-		var fingerprintSerializer = new wb.serialization.FingerprintSerializer();
+		var entityTermsSerializer = new wb.serialization.EntityTermsSerializer();
 
 		return $.extend( true, {
 			id: mockEntity.getId(),
 			type: 'mock'
-		}, fingerprintSerializer.serialize( mockEntity.getFingerprint() ) );
+		}, entityTermsSerializer.serialize( mockEntity.getEntityTerms() ) );
 	}
 } );
 
 var defaults = [
 	{
-		fingerprint: new wb.datamodel.Fingerprint(
+		entityTerms: new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'label' ) } ),
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'description' ) } ),
 			new wb.datamodel.MultiTermMap( { en: new wb.datamodel.MultiTerm( 'en', ['alias'] ) } )
@@ -53,7 +53,7 @@ var defaults = [
 			] ) )
 		] )
 	}, {
-		fingerprint: {
+		entityTerms: {
 			labels: { en: { language: 'en', value: 'label' } },
 			descriptions: { en: { language: 'en', value: 'description' } },
 			aliases: { en: [{ language: 'en', value: 'alias' }] }
@@ -77,10 +77,10 @@ var testSets = [
 		new wb.datamodel.Property(
 			'P1',
 			'string',
-			defaults[0].fingerprint,
+			defaults[0].entityTerms,
 			defaults[0].statementGroupSet
 		),
-		$.extend( true, {}, defaults[1].fingerprint, {
+		$.extend( true, {}, defaults[1].entityTerms, {
 			id: 'P1',
 			type: 'property',
 			datatype: 'string',
@@ -89,11 +89,11 @@ var testSets = [
 	], [
 		new wb.datamodel.Item(
 			'Q1',
-			defaults[0].fingerprint,
+			defaults[0].entityTerms,
 			defaults[0].statementGroupSet,
 			new wb.datamodel.SiteLinkSet( [new wb.datamodel.SiteLink( 'someSite', 'page' )] )
 		),
-		$.extend( true, {}, defaults[1].fingerprint, {
+		$.extend( true, {}, defaults[1].entityTerms, {
 			id: 'Q1',
 			type: 'item',
 			claims: defaults[1].statementGroupSet,
@@ -122,7 +122,7 @@ QUnit.test( 'serialize()', function( assert ) {
 
 QUnit.test( 'registerStrategy()', function( assert ) {
 	var entitySerializer = new wb.serialization.EntitySerializer(),
-		mockEntity = new wb.serialization.tests.MockEntity( 'i am an id', defaults[0].fingerprint );
+		mockEntity = new wb.serialization.tests.MockEntity( 'i am an id', defaults[0].entityTerms );
 
 	assert.throws(
 		function() {

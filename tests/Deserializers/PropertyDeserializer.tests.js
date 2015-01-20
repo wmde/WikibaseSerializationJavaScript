@@ -9,7 +9,7 @@ QUnit.module( 'wikibase.serialization.EntityDeserializer' );
 
 var defaults = [
 	{
-		fingerprint: {
+		entityTerms: {
 			labels: { en: { language: 'en', value: 'label' } },
 			descriptions: { en: { language: 'en', value: 'description' } },
 			aliases: { en: [{ language: 'en', value: 'alias' }] }
@@ -26,7 +26,7 @@ var defaults = [
 			} ]
 		}
 	}, {
-		fingerprint: new wb.datamodel.Fingerprint(
+		entityTerms: new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'label' ) } ),
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'description' ) } ),
 			new wb.datamodel.MultiTermMap( { en: new wb.datamodel.MultiTerm( 'en', ['alias'] ) } )
@@ -45,7 +45,7 @@ var defaults = [
 
 var testSets = [
 	[
-		$.extend( true, {}, defaults[0].fingerprint, {
+		$.extend( true, {}, defaults[0].entityTerms, {
 			id: 'P1',
 			type: 'property',
 			datatype: 'string',
@@ -54,7 +54,7 @@ var testSets = [
 		new wb.datamodel.Property(
 			'P1',
 			'string',
-			defaults[1].fingerprint,
+			defaults[1].entityTerms,
 			defaults[1].statementGroupSet
 		)
 	]

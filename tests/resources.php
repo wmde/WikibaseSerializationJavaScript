@@ -34,7 +34,7 @@ return call_user_func( function() {
 			),
 			'dependencies' => array(
 				'util.inherit',
-				'wikibase.datamodel.Fingerprint',
+				'wikibase.datamodel.EntityTerms',
 				'wikibase.datamodel.MultiTerm',
 				'wikibase.datamodel.MultiTermMap',
 				'wikibase.datamodel.Term',

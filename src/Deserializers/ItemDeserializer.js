@@ -26,13 +26,13 @@ MODULE.ItemDeserializer = util.inherit( 'WbItemDeserializer', PARENT, {
 			throw new Error( 'Serialization does not resolve to an Item' );
 		}
 
-		var fingerprintDeserializer = new MODULE.FingerprintDeserializer(),
+		var entityTermsDeserializer = new MODULE.EntityTermsDeserializer(),
 			statementGroupSetDeserializer = new MODULE.StatementGroupSetDeserializer(),
 			siteLinkSetDeserializer = new MODULE.SiteLinkSetDeserializer();
 
 		return new wb.datamodel.Item(
 			serialization.id,
-			fingerprintDeserializer.deserialize( serialization ),
+			entityTermsDeserializer.deserialize( serialization ),
 			statementGroupSetDeserializer.deserialize( serialization.claims ),
 			siteLinkSetDeserializer.deserialize( serialization.sitelinks )
 		);

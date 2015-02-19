@@ -10,14 +10,14 @@ QUnit.module( 'wikibase.serialization.MockEntity' );
 var testSets = [
 	[
 		'i am an id',
-		new wb.datamodel.Fingerprint(
+		new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap(),
 			new wb.datamodel.TermMap(),
 			new wb.datamodel.MultiTermMap()
 		)
 	], [
 		'i am an id',
-		new wb.datamodel.Fingerprint(
+		new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap( { de: new wb.datamodel.Term( 'de', 'de-label' ) } ),
 			new wb.datamodel.TermMap( { de: new wb.datamodel.Term( 'de', 'de-description' ) } ),
 			new wb.datamodel.MultiTermMap( {
@@ -41,7 +41,7 @@ QUnit.test( 'isEmpty()', function( assert ) {
 	assert.ok(
 		( new wb.serialization.tests.MockEntity(
 			'i am an id',
-			new wb.datamodel.Fingerprint(
+			new wb.datamodel.EntityTerms(
 				new wb.datamodel.TermMap(),
 				new wb.datamodel.TermMap(),
 				new wb.datamodel.MultiTermMap()
@@ -53,13 +53,13 @@ QUnit.test( 'isEmpty()', function( assert ) {
 	assert.ok(
 		!( new wb.serialization.tests.MockEntity(
 			'i am an id',
-			new wb.datamodel.Fingerprint(
+			new wb.datamodel.EntityTerms(
 				new wb.datamodel.TermMap( { de: new wb.datamodel.Term( 'de', 'de-term' ) } ),
 				new wb.datamodel.TermMap(),
 				new wb.datamodel.MultiTermMap()
 			)
 		) ).isEmpty(),
-		'Returning FALSE when Fingerprint is not empty.'
+		'Returning FALSE when EntityTerms is not empty.'
 	);
 } );
 

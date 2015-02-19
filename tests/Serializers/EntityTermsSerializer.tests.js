@@ -5,18 +5,18 @@
 ( function( wb, QUnit ) {
 'use strict';
 
-QUnit.module( 'wikibase.serialization.FingerprintSerializer' );
+QUnit.module( 'wikibase.serialization.EntityTermsSerializer' );
 
 var testSets = [
 	[
-		new wb.datamodel.Fingerprint(),
+		new wb.datamodel.EntityTerms(),
 		{
 			labels: {},
 			descriptions: {},
 			aliases: {}
 		}
 	], [
-		new wb.datamodel.Fingerprint(
+		new wb.datamodel.EntityTerms(
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'label' ) } ),
 			new wb.datamodel.TermMap( { en: new wb.datamodel.Term( 'en', 'description' ) } ),
 			new wb.datamodel.MultiTermMap( { en: new wb.datamodel.MultiTerm( 'en', ['alias'] ) } )
@@ -30,11 +30,11 @@ var testSets = [
 ];
 
 QUnit.test( 'serialize()', function( assert ) {
-	var fingerprintSerializer = new wb.serialization.FingerprintSerializer();
+	var entityTermsSerializer = new wb.serialization.EntityTermsSerializer();
 
 	for( var i = 0; i < testSets.length; i++ ) {
 		assert.deepEqual(
-			fingerprintSerializer.serialize( testSets[i][0] ),
+			entityTermsSerializer.serialize( testSets[i][0] ),
 			testSets[i][1],
 			'Test set #' + i + ': Serializing successful.'
 		);

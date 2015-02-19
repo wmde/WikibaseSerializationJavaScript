@@ -20,7 +20,7 @@ var SELF = MODULE.SerializerFactory = function WbSerializerProvider() {
 	this.registerSerializer( MODULE.ClaimListSerializer, wb.datamodel.ClaimList );
 	this.registerSerializer( MODULE.ClaimSerializer, wb.datamodel.Claim );
 	this.registerSerializer( MODULE.EntitySerializer, wb.datamodel.Entity );
-	this.registerSerializer( MODULE.FingerprintSerializer, wb.datamodel.Fingerprint );
+	this.registerSerializer( MODULE.EntityTermsSerializer, wb.datamodel.EntityTerms );
 	this.registerSerializer( MODULE.MultiTermMapSerializer, wb.datamodel.MultiTermMap );
 	this.registerSerializer( MODULE.MultiTermSerializer, wb.datamodel.MultiTerm );
 	this.registerSerializer( MODULE.ReferenceListSerializer, wb.datamodel.ReferenceList );

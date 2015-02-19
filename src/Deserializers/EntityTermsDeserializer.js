@@ -5,7 +5,7 @@ var MODULE = wb.serialization,
 	PARENT = MODULE.Deserializer;
 
 /**
- * @class wikibase.serialization.FingerprintDeserializer
+ * @class wikibase.serialization.EntityTermsDeserializer
  * @extends wikibase.serialization.Deserializer
  * @since 2.0
  * @licence GNU GPL v2+
@@ -13,17 +13,17 @@ var MODULE = wb.serialization,
  *
  * @constructor
  */
-MODULE.FingerprintDeserializer = util.inherit( 'WbFingerprintDeserializer', PARENT, {
+MODULE.EntityTermsDeserializer = util.inherit( 'WbEntityTermsDeserializer', PARENT, {
 	/**
 	 * @inheritdoc
 	 *
-	 * @return {wikibase.datamodel.Fingerprint}
+	 * @return {wikibase.datamodel.EntityTerms}
 	 */
 	deserialize: function( serialization ) {
 		var termMapDeserializer = new MODULE.TermMapDeserializer(),
 			multiTermMapDeserializer = new MODULE.MultiTermMapDeserializer();
 
-		return new wb.datamodel.Fingerprint(
+		return new wb.datamodel.EntityTerms(
 			termMapDeserializer.deserialize( serialization.labels ),
 			termMapDeserializer.deserialize( serialization.descriptions ),
 			multiTermMapDeserializer.deserialize( serialization.aliases )

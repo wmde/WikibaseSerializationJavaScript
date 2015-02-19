@@ -26,13 +26,13 @@ MODULE.PropertyDeserializer = util.inherit( 'WbPropertyDeserializer', PARENT, {
 			throw new Error( 'Serialization does not resolve to a Property' );
 		}
 
-		var fingerprintDeserializer = new MODULE.FingerprintDeserializer(),
+		var entityTermsDeserializer = new MODULE.EntityTermsDeserializer(),
 			statementGroupSetDeserializer = new MODULE.StatementGroupSetDeserializer();
 
 		return new wb.datamodel.Property(
 			serialization.id,
 			serialization.datatype,
-			fingerprintDeserializer.deserialize( serialization ),
+			entityTermsDeserializer.deserialize( serialization ),
 			statementGroupSetDeserializer.deserialize( serialization.claims )
 		);
 	}

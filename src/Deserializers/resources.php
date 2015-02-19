@@ -96,13 +96,13 @@ return call_user_func( function() {
 			),
 		),
 
-		'wikibase.serialization.FingerprintDeserializer' => $moduleTemplate + array(
+		'wikibase.serialization.EntityTermsDeserializer' => $moduleTemplate + array(
 			'scripts' => array(
-				'FingerprintDeserializer.js',
+				'EntityTermsDeserializer.js',
 			),
 			'dependencies' => array(
 				'util.inherit',
-				'wikibase.datamodel.Fingerprint',
+				'wikibase.datamodel.EntityTerms',
 				'wikibase.serialization.__namespace',
 				'wikibase.serialization.Deserializer',
 				'wikibase.serialization.MultiTermMapDeserializer',
@@ -119,7 +119,7 @@ return call_user_func( function() {
 				'wikibase.datamodel.Item',
 				'wikibase.serialization.__namespace',
 				'wikibase.serialization.Deserializer',
-				'wikibase.serialization.FingerprintDeserializer',
+				'wikibase.serialization.EntityTermsDeserializer',
 				'wikibase.serialization.SiteLinkSetDeserializer',
 				'wikibase.serialization.StatementGroupSetDeserializer',
 			),
@@ -159,7 +159,7 @@ return call_user_func( function() {
 				'wikibase.datamodel.Property',
 				'wikibase.serialization.__namespace',
 				'wikibase.serialization.Deserializer',
-				'wikibase.serialization.FingerprintDeserializer',
+				'wikibase.serialization.EntityTermsDeserializer',
 				'wikibase.serialization.StatementGroupSetDeserializer',
 			),
 		),

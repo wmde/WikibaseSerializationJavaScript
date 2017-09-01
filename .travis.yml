@@ -11,7 +11,7 @@ before_script:
 
 script:
   - composer test
-  - npm install && npm run eslint
+  - npm install && npm test
 
 notifications:
   irc:

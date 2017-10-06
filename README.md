@@ -21,6 +21,10 @@ version 2.0 of this package:
 
 ## Release notes
 
+### 3.0.0 (dev)
+
+* Removed the (optional) MediaWiki extension registration.
+
 ### 2.1.0 (2017-09-04)
 
 * Updated the MediaWiki entry point to use the extension.json format.

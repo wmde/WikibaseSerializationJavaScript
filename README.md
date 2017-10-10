@@ -4,9 +4,10 @@ JavaScript library containing serializers and deserializers for the Wikibase Dat
 
 ## Release notes
 
-### 3.0.0 (dev)
+### 3.0.0 (2017-10-10)
 
 * Made the library a pure JavaScript library.
+* Removed MediaWiki extension registration.
 * Removed MediaWiki ResourceLoader module definitions.
 * Raised DataValues JS library version requirement to 0.10.0, and Wikibase Data Model JS library version requirement to 4.0.0.
 * Removed all serializers and deserializers for Claim collections:
@@ -16,6 +17,7 @@ JavaScript library containing serializers and deserializers for the Wikibase Dat
   * Removed ClaimGroupSetSerializer
   * Removed ClaimListDeserializer
   * Removed ClaimListSerializer
+* Removed WIKIBASE_SERIALIZATION_JAVASCRIPT_VERSION constant.
 
 ### 2.1.0 (2017-09-04)
 

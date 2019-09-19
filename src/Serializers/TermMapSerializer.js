@@ -23,12 +23,12 @@ MODULE.TermMapSerializer = util.inherit( 'WbTermMapSerializer', PARENT, {
 	 * @throws {Error} if termMap is not a TermMap instance.
 	 */
 	serialize: function( termMap ) {
+		var termSerializer = require( './TermSerializer' );
 		if( !( termMap instanceof wb.datamodel.TermMap ) ) {
 			throw new Error( 'Not an instance of wikibase.datamodel.TermMap' );
 		}
 
 		var serialization = {},
-			termSerializer = new MODULE.TermSerializer(),
 			languageCodes = termMap.getKeys();
 
 		for( var i = 0; i < languageCodes.length; i++ ) {

@@ -1,6 +1,6 @@
 module.exports = {
 	Deserializer: wikibase.serialization.Deserializer,
-	EntityDeserializer: require( 'Deserializers/EntityDeserializer.js' ),
+	EntityDeserializer: require( './Deserializers/EntityDeserializer.js' ),
 	SnakDeserializer: wikibase.serialization.SnakDeserializer,
 	StatementDeserializer: wikibase.serialization.StatementDeserializer,
 	StatementGroupSetDeserializer: wikibase.serialization.StatementGroupSetDeserializer,
@@ -15,5 +15,5 @@ module.exports = {
 	SnakSerializer: wikibase.serialization.SnakSerializer,
 	StatementListSerializer: wikibase.serialization.StatementListSerializer,
 	StatementSerializer: wikibase.serialization.StatementSerializer,
-	TermMapSerializer: require( 'Serializers/TermMapSerializer.js' )
+	TermMapSerializer: require( './Serializers/TermMapSerializer.js' )
 };

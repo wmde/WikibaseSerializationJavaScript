@@ -7,6 +7,7 @@ module.exports = {
 	StatementListDeserializer: require( './Deserializers/StatementListDeserializer.js' ),
 	TermDeserializer: require( './Deserializers/TermDeserializer.js' ),
 	TermMapDeserializer: require( './Deserializers/TermMapDeserializer.js' ),
+	FingerprintDeserializer: require( './Deserializers/FingerprintDeserializer.js' ),
 	ClaimSerializer: require( './Serializers/ClaimSerializer.js' ),
 	ReferenceListSerializer: require( './Serializers/ReferenceListSerializer.js' ),
 	ReferenceSerializer: require( './Serializers/ReferenceSerializer.js' ),
